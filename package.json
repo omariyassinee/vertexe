@@ -1,0 +1,20 @@
+{
+  "name": "vertexe",
+  "private": true,
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
+    "@types/bun": "latest"
+  },
+  "scripts": {
+    "dev": "bun run src/server.ts --watch",
+    "build": "bun build src/server.ts --splitting --outdir dist --minify --target bun",
+    "preview": "bun run dist/server.js",
+    "preview:background": "setsid nohup bun run preview > server.log 2>&1 < /dev/null &",
+  },
+  "peerDependencies": {
+    "typescript": "^7"
+  },
+  "dependencies": {
+    "cloudflare": "^7.3.0"
+  }
+}
