@@ -1,3 +1,5 @@
+import { env } from "@/env";
+
 export const isValidIP = (ip: string | null | undefined): boolean => {
 	if (!ip) return false;
 
@@ -8,7 +10,7 @@ export const isValidIP = (ip: string | null | undefined): boolean => {
 };
 
 export const getRequestIP = (req: Request): string | null => {
-	return req.headers.get("CF-Connecting-IP");
+	return env.isDevelopment ? "127.0.0.1" : req.headers.get("CF-Connecting-IP");
 };
 
 type PromiseArg<T> = Promise<T> | (() => Promise<T>);
